@@ -4,6 +4,7 @@ part of 'notella_cubit_cubit.dart';
 sealed class NotellaState {}
 
 class NotellaInitial extends NotellaState {}
+class Notellasuccsse extends NotellaState {}
 
  
  

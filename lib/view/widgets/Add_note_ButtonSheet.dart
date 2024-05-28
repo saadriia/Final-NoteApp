@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:notes_app/cubits/add_Note_cubit/addnotes_cubit.dart';
+import 'package:notes_app/cubits/notes_cubit/notella_cubit_cubit.dart';
 import 'package:notes_app/view/widgets/Constants.dart';
 import 'package:notes_app/view/widgets/Custom_TexetField.dart';
 
@@ -32,6 +33,7 @@ class _AddNoteButtonSheatState extends State<AddNoteButtonSheat> {
               print('لم يتم الحفظ ${state.errMssage}');
             }
             if (state is AddNoteSuccess) {
+              BlocProvider.of<NotellaCubit>(context).fetchAllnotes();
               Navigator.pop(context);
             }
           },

@@ -14,6 +14,7 @@ class NotellaCubit extends Cubit<NotellaState> {
   fetchAllnotes() {
     var notsBox = Hive.box<NoteModel>(kNotesBox);
 
-      notes = notsBox.values.toList();
+    notes = notsBox.values.toList();
+    emit(Notellasuccsse());
   }
 }

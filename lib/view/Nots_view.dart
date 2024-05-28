@@ -12,24 +12,21 @@ class NotsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotellaCubit(),
-      child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showModalBottomSheet(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18),
-                ),
-                context: context,
-                builder: (context) {
-                  return const AddNoteButtonSheat();
-                });
-          },
-          child: const Icon(Icons.add),
-        ),
-        body: const NotesViewBody(),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18),
+              ),
+              context: context,
+              builder: (context) {
+                return const AddNoteButtonSheat();
+              });
+        },
+        child: const Icon(Icons.add),
       ),
+      body: const NotesViewBody(),
     );
   }
 }

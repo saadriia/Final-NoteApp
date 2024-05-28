@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notes_app/cubits/notes_cubit/notella_cubit_cubit.dart';
 import 'package:notes_app/models/Note_modele.dart';
 import 'package:date_format/date_format.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 class NoteItem extends StatelessWidget {
   const NoteItem({super.key, required this.note});
   final NoteModel note;
@@ -14,7 +17,7 @@ class NoteItem extends StatelessWidget {
         left: 16,
       ),
       decoration: BoxDecoration(
-        color:  Color(note.color),
+        color: Color(note.color),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -28,7 +31,7 @@ class NoteItem extends StatelessWidget {
                   fontSize: 26,
                   fontWeight: FontWeight.bold),
             ),
-            subtitle:  Padding(
+            subtitle: Padding(
               padding: const EdgeInsets.only(
                 top: 16,
                 bottom: 16,
@@ -42,7 +45,10 @@ class NoteItem extends StatelessWidget {
               ),
             ),
             trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  note.delete();
+                  BlocProvider.of<NotellaCubit>(context).fetchAllnotes();
+                },
                 icon: const Icon(
                   FontAwesomeIcons.trash,
                   size: 24,
@@ -53,7 +59,7 @@ class NoteItem extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(right: 24),
             child: Text(
-            note.date,
+              note.date,
               style: const TextStyle(color: Colors.black, fontSize: 16),
             ),
           ),

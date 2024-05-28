@@ -8,6 +8,8 @@ import 'package:notes_app/models/Note_modele.dart';
 import 'package:notes_app/view/widgets/Constants.dart';
 //import 'package:notes_app/view/Nots_view.dart';
 
+
+import 'cubits/notes_cubit/notella_cubit_cubit.dart';
 import 'view/Nots_view.dart';
 
 void main() async {
@@ -25,13 +27,17 @@ class NotsApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        fontFamily: 'Bentham',
+    return BlocProvider(
+            create: (context) => NotellaCubit(),
+
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          brightness: Brightness.dark,
+          fontFamily: 'Bentham',
+        ),
+        home: const NotsView(),
       ),
-      home: const NotsView(),
     );
   }
 }
