@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notella_cubit_cubit.dart';
+import 'package:notes_app/models/Note_modele.dart';
 //import 'package:notes_app/view/widgets/Nots_view_body.dart';
 
 import 'widgets/Add_note_ButtonSheet.dart';
@@ -9,7 +10,6 @@ import 'widgets/Nots_view_body.dart';
 
 class NotsView extends StatelessWidget {
   const NotsView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -30,7 +30,6 @@ class _AddNoteButtonSheatState extends State<AddNoteButtonSheat> {
         child: BlocConsumer<NotesCubit, AddNotesState>(
           listener: (context, state) {
             if (state is AddNoteFailure) {
-              print('لم يتم الحفظ ${state.errMssage}');
             }
             if (state is AddNoteSuccess) {
               BlocProvider.of<NotellaCubit>(context).fetchAllnotes();

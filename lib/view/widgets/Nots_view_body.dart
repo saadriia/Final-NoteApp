@@ -31,7 +31,8 @@ class _NotesViewBodyState extends State<NotesViewBody> {
             height: 50,
           ),
           customAppBar(
-            
+            title: 'Notes',
+            icon: Icons.search,
           ),
           Expanded(
             child: NotsListView(),
